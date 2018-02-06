@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class App extends Component {
+  // foo
   static propTypes = {
     renderTarget: PropTypes.string.isRequired, //
   }

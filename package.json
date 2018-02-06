@@ -6,14 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel 'src' --out-dir 'build' --ignore 'node_modules'",
+    "build-rollup": "node ./tasks/build.js",
     "build2": "babel 'src/index.js' --out-dir 'build' --copy-files --ignore 'node_modules'",
     "run": "cp ./build/index.js ./build/index.mjs && node ./build/index.js --foo mechan",
     "run2": "cp ./build/src/index.js ./build/src/index.mjs && node -r @std/esm ./build/src/index.js --foo mechan",
-    "build-and-run": "npm run build && npm run run"
+    "run-rollup": "node ./build/index-rollup.js --foo mechan",
+    "run-rollup2": "cp ./build/index-rollup.js ./build/index-rollup.mjs && node -r @std/esm ./build/index-rollup.mjs --foo mechan",
+    "build-and-run": "npm run build && npm run run",
+    "build-and-run-rollup": "npm run build-rollup && npm run run-rollup"
   },
   "author": "",
   "license": "ISC",
-  "babel": {
+  "babel-ignore-me": {
     "presets": [
       [
         "env",
@@ -38,10 +42,15 @@
   "private": true,
   "dependencies": {
     "@std/esm": "^0.20.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "chalk": "^2.3.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
+  },
+  "devDependencies-oops": {
+    "babel-preset-es2015": "latest"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -50,12 +59,24 @@
     "babel-plugin-add-module-exports": "0.2.1",
     "babel-plugin-transform-imports": "^1.4.1",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-es2015": "latest",
     "babel-preset-stage-2": "6.24.1",
     "eslint": "4.8.0",
     "eslint-config-airbnb": "15.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.1.0"
+    "eslint-plugin-react": "^7.1.0",
+    "rollup": "^0.47.6",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-globals": "^1.1.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-replace": "^1.2.1",
+    "rollup-plugin-uglify": "^2.0.1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-syntax-decorators": "^6.13.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-preset-react-app": "^3.1.0",
+    "babel-preset-stage-0": "^6.24.1"
   }
 }
