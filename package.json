@@ -1,0 +1,60 @@
+{
+  "name": "babel-react-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel 'src/index.js' --out-dir 'build' --copy-files --ignore 'node_modules'",
+    "run": "cp ./build/src/index.js ./build/src/index.mjs && node ./build/src/index.js --foo mechan",
+    "run2": "cp ./build/src/index.js ./build/src/index.mjs && node -r @std/esm ./build/src/index.js --foo mechan",
+    "build-and-run": "npm run build && npm run run"
+  },
+  "author": "",
+  "license": "ISC",
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "loose": true,
+          "targets": {
+            "node": "8"
+          },
+          "debug": true
+        }
+      ],
+      "es2015",
+      "react",
+      "stage-2"
+    ],
+    "plugins": [
+      "add-module-exports",
+      "transform-runtime",
+      "transform-imports"
+    ]
+  },
+  "private": true,
+  "dependencies": {
+    "@std/esm": "^0.20.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "6.26.0",
+    "babel-eslint": "8.0.1",
+    "babel-plugin-add-module-exports": "0.2.1",
+    "babel-plugin-transform-imports": "^1.4.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "latest",
+    "babel-preset-stage-2": "6.24.1",
+    "eslint": "4.8.0",
+    "eslint-config-airbnb": "15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0"
+  }
+}
