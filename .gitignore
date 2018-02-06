@@ -5,4 +5,5 @@
 .tmp
 /.idea/*
 # Mac DS_Store files
-.DS_Store
+.DS_Storebuild
+/build 

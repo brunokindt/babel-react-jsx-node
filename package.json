@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel 'src/index.js' --out-dir 'build' --copy-files --ignore 'node_modules'",
-    "run": "cp ./build/src/index.js ./build/src/index.mjs && node ./build/src/index.js --foo mechan",
+    "build": "babel 'src' --out-dir 'build' --ignore 'node_modules'",
+    "build2": "babel 'src/index.js' --out-dir 'build' --copy-files --ignore 'node_modules'",
+    "run": "cp ./build/index.js ./build/index.mjs && node ./build/index.js --foo mechan",
     "run2": "cp ./build/src/index.js ./build/src/index.mjs && node -r @std/esm ./build/src/index.js --foo mechan",
     "build-and-run": "npm run build && npm run run"
   },
@@ -19,7 +20,7 @@
         {
           "loose": true,
           "targets": {
-            "node": "8"
+            "node": "6"
           },
           "debug": true
         }

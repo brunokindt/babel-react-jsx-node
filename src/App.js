@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class App extends Component {
+  static propTypes = {
+    renderTarget: PropTypes.string.isRequired, //
+  }
+
+  static defaultProps = {
+  }
+
   render() {
+    const { renderTarget } = this.props;
     return (
       <div className="App">
         <header className="App-header">

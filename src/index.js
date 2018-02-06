@@ -2,7 +2,7 @@
 // import React from 'react';
 import React, { Component } from 'react';
 import ReactDOMServer from 'react-dom/server';
-// import App from './App';
+import App from './App';
 
 
 class TestClass extends Component {
@@ -70,11 +70,14 @@ const content = {
 // );
 
 const html = ReactDOMServer.renderToStaticMarkup(
-  <TestClass
-    id={id}
-    content={content}
-    renderTarget={renderTarget}
-  />
+  <div>
+    <TestClass />
+    <App
+      id={id}
+      content={content}
+      renderTarget={renderTarget}
+    />
+  </div>
 );
 
 console.log('-------');
