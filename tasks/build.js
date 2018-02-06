@@ -8,6 +8,8 @@ const globals = require('rollup-plugin-node-globals');
 const packagesDir = path.join(__dirname, '..');
 // const format = 'es';
 const format = 'cjs';
+// const format = 'iife';
+// const format = 'umd';
 
 function componentPath(fpath) {
   return path.join(packagesDir, fpath);
@@ -34,13 +36,13 @@ function config() {
           //
           // loose: true,
           targets: {
-            node: "8"
+            node: "6"
           },
           debug: true
         }
     ],
     // 'es2015',
-    // 'es2015-rollup',
+    'es2015-rollup',
     'react',
     // 'stage-2',
   ];
@@ -49,7 +51,7 @@ function config() {
     // 'add-module-exports',
     // 'transform-runtime',
     // 'transform-imports'
-    // 'external-helpers',
+    'external-helpers',
     'transform-object-rest-spread',
     'babel-plugin-transform-class-properties'
   ];
@@ -66,7 +68,7 @@ function config() {
         presets: presets,
         plugins: plugins,
       }),
-      globals(),
+      // globals(),
     ],
   };
 }

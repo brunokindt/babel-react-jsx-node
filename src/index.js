@@ -1,18 +1,17 @@
 /* eslint-disable quote-props,comma-dangle,no-useless-escape */
 // import React from 'react';
-// import React, { Component } from 'react';
-// import ReactDOMServer from 'react-dom/server';
-// import App from './App';
+import React, { Component } from 'react';
+import ReactDOMServer from 'react-dom/server';
+import App from './App';
 
-// class TestClass extends Component {
-//     render () {
-//         return <div>Hi</div>;
-//     }
-// }
+class TestClass extends Component {
+    render () {
+        return <div>Hi</div>;
+    }
+}
 
-// export default TestClass;
-// console.log(TestClass); // logging just for this example
-//
+export default TestClass;
+console.log(TestClass); // logging just for this example
 
 const renderTarget = 'html';
 const id = 1;
@@ -53,7 +52,7 @@ const content = {
   }]
 };
 
-const html = 'html';
+// const html = 'html';
 
 // const html = ReactDOMServer.renderToStaticMarkup(
 //   <div>Hi</div>
@@ -73,25 +72,25 @@ const html = 'html';
 //   </div>
 // );
 
-// const html = ReactDOMServer.renderToStaticMarkup(
-//   <div>
-//     <TestClass />
-//     <App
-//       id={id}
-//       content={content}
-//       renderTarget={renderTarget}
-//     />
-//   </div>
-// );
+const html = ReactDOMServer.renderToStaticMarkup(
+  <div>
+    <TestClass />
+    <App
+      id={id}
+      content={content}
+      renderTarget={renderTarget}
+    />
+  </div>
+);
 
-console.log('-------');
+console.log('----------------------------------------------------------------------');
 console.log(html);
-console.log('-------');
+console.log(process.title);
+console.log('----------------------------------------------------------------------');
 
 console.log(process.argv);
 console.log(process.argv0);
 console.log(process.cwd());
-console.log(process);
 // for (let j = 0; j < process.argv.length; j++) {
 //   console.log(j + ' -> ' + (process.argv[j]));
 // }

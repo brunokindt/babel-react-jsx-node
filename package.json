@@ -8,16 +8,17 @@
     "build": "babel 'src' --out-dir 'build' --ignore 'node_modules'",
     "build-rollup": "node ./tasks/build.js",
     "build2": "babel 'src/index.js' --out-dir 'build' --copy-files --ignore 'node_modules'",
-    "run": "cp ./build/index.js ./build/index.mjs && node ./build/index.js --foo mechan",
+    "run": "node ./build/index.js --foo mechan",
     "run2": "cp ./build/src/index.js ./build/src/index.mjs && node -r @std/esm ./build/src/index.js --foo mechan",
     "run-rollup": "node ./build/index-rollup.js --foo mechan",
     "run-rollup2": "cp ./build/index-rollup.js ./build/index-rollup.mjs && node -r @std/esm ./build/index-rollup.mjs --foo mechan",
     "build-and-run": "npm run build && npm run run",
-    "build-and-run-rollup": "npm run build-rollup && npm run run-rollup"
+    "build-and-run-rollup": "npm run build-rollup && npm run run-rollup",
+    "all": "npm run build-and-run && npm run build-and-run-rollup"
   },
   "author": "",
   "license": "ISC",
-  "babel-ignore-me": {
+  "babel": {
     "presets": [
       [
         "env",
